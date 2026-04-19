@@ -13,7 +13,7 @@ load_dotenv()
 
 # Create FastAPI app
 app = FastAPI(
-    title="RentSaathi API",
+    title="RentPartner API",
     description="Smart flatmate matching platform API",
     version="0.1.0"
 )
@@ -123,7 +123,7 @@ async def get_waitlist(
 async def root():
     """Root endpoint"""
     return {
-        "message": "Welcome to RentSaathi API",
+        "message": "Welcome to RentPartner API",
         "version": "0.1.0",
         "docs": "/docs"
     }

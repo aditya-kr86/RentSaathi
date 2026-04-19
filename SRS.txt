@@ -1,6 +1,6 @@
 # 📄 Software Requirements Specification (SRS)
 
-## Project: RentSaathi – Smart Flatmate Matching Platform
+## Project: RentPartner – Smart Flatmate Matching Platform
 
 ---
 
@@ -8,11 +8,11 @@
 
 ### 1.1 Purpose
 
-This document defines the functional and non-functional requirements of RentSaathi. It serves as a guide for developers and designers to build a working prototype.
+This document defines the functional and non-functional requirements of RentPartner. It serves as a guide for developers and designers to build a working prototype.
 
 ### 1.2 Scope
 
-RentSaathi is a web-based platform that connects users looking for compatible flatmates using smart preference-based matching.
+RentPartner is a web-based platform that connects users looking for compatible flatmates using smart preference-based matching.
 
 The system will:
 
@@ -444,7 +444,7 @@ System generates a compatibility score based on user preferences.
 
 ## 7. Conclusion
 
-RentSaathi focuses on solving flatmate compatibility using structured data and smart matching. The prototype prioritizes user experience, speed, and core functionality over complex integrations.
+RentPartner focuses on solving flatmate compatibility using structured data and smart matching. The prototype prioritizes user experience, speed, and core functionality over complex integrations.
 
 ---
 

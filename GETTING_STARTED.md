@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "==============================================="
-echo "  🏠 RentSaathi - Smart Flatmate Matching"
+echo "  🏠 RentPartner - Smart Flatmate Matching"
 echo "  Milestone 1: Landing Page Complete ✅"
 echo "==============================================="
 echo ""
@@ -57,7 +57,7 @@ echo ""
 echo "==============================================="
 echo "  📂 PROJECT STRUCTURE:"
 echo "==============================================="
-echo "RentSaathi/"
+echo "RentPartner/"
 echo "  ├── rentsaathi/              Frontend (React + TypeScript)"
 echo "  │   ├── src/"
 echo "  │   │   ├── components/"

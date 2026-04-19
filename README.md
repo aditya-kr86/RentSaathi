@@ -1,4 +1,4 @@
-# 🏠 RentSaathi - Smart Flatmate Matching Platform
+# 🏠 RentPartner - Smart Flatmate Matching Platform
 
 > Find your perfect flatmate with intelligent AI-powered compatibility matching
 
@@ -86,7 +86,7 @@ run.bat
 ## 📂 Project Structure
 
 ```
-RentSaathi/
+RentPartner/
 ├── rentsaathi/                 # Frontend (React + TypeScript)
 │   ├── src/
 │   │   ├── components/

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# RentSaathi Backend Startup Script
+# RentPartner Backend Startup Script
 
-echo "🚀 Starting RentSaathi Backend..."
+echo "🚀 Starting RentPartner Backend..."
 
 # Check if virtual environment exists
 if [ ! -d "venv" ]; then

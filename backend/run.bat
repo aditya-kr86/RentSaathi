@@ -1,7 +1,7 @@
 @echo off
-REM RentSaathi Backend Startup Script for Windows
+REM RentPartner Backend Startup Script for Windows
 
-echo 🚀 Starting RentSaathi Backend...
+echo 🚀 Starting RentPartner Backend...
 
 REM Check if virtual environment exists
 if not exist "venv" (

@@ -1,6 +1,6 @@
-# RentSaathi Backend
+# RentPartner Backend
 
-Fast API backend for the RentSaathi flatmate matching platform.
+Fast API backend for the RentPartner flatmate matching platform.
 
 ## Getting Started
 

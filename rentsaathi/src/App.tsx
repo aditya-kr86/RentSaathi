@@ -77,7 +77,7 @@ export default function App() {
           <div className="container mx-auto flex items-center justify-between px-6">
             <div className="flex items-center gap-2 text-2xl font-bold tracking-tight text-indigo-600 dark:text-sky-300">
               <Home className="h-7 w-7" />
-              RentSaathi
+              RentPartner
             </div>
 
             <div className="hidden items-center gap-8 font-medium text-slate-600 dark:text-zinc-300 md:flex">
@@ -243,7 +243,7 @@ export default function App() {
 
         <section id="features" className="bg-slate-100/80 py-20 dark:bg-zinc-900/60">
           <div className="container mx-auto max-w-6xl px-6">
-            <h2 className="mb-4 text-center text-3xl font-bold lg:text-5xl">Why RentSaathi Works</h2>
+            <h2 className="mb-4 text-center text-3xl font-bold lg:text-5xl">Why RentPartner Works</h2>
             <p className="mx-auto mb-12 max-w-2xl text-center text-lg text-slate-600 dark:text-zinc-400">Built for compatibility-first decisions so you can avoid mismatches before moving in.</p>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {[
@@ -315,7 +315,7 @@ export default function App() {
           <div className="container mx-auto px-6">
             <div className="mb-6 flex items-center justify-center gap-2 text-xl font-bold tracking-tight text-white">
               <Home className="h-6 w-6" />
-              RentSaathi
+              RentPartner
             </div>
             <p className="mx-auto mb-6 max-w-md">Making co-living peaceful, secure, and compatible. Built with care for better living.</p>
             <div className="mb-8 flex justify-center gap-6 text-sm">
@@ -323,7 +323,7 @@ export default function App() {
               <a href="#" className="transition-colors hover:text-white">Terms of Service</a>
               <a href="#" className="transition-colors hover:text-white">Contact</a>
             </div>
-            <p className="text-sm">© {new Date().getFullYear()} RentSaathi Platform. All rights reserved.</p>
+            <p className="text-sm">© {new Date().getFullYear()} RentPartner Platform. All rights reserved.</p>
           </div>
         </footer>
       </div>
