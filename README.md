@@ -2,23 +2,23 @@
 
 > Find your perfect flatmate with intelligent AI-powered compatibility matching
 
-## 🎯 Milestone 1: Landing Page ✅
+## 🎯 Milestone 1: Dynamic Onboarding Experience ✅
 
-This milestone includes a stunning, fully-responsive landing page with:
+This milestone now includes a fully-responsive, role-based dynamic page with:
 
 ### ✨ Features Implemented
 
 #### Frontend (React + TypeScript)
-- ✅ **Hero Section** - Eye-catching introduction with smooth animations
-- ✅ **Problem Section** - 6 burning issues that flatmates face
-- ✅ **Solution Section** - How RentSaathi solves each problem
-- ✅ **Features Section** - 6 core features showcased
-- ✅ **Stats Section** - Impressive metrics to build trust
-- ✅ **Waitlist Form** - Email capture with validation
+- ✅ **Sticky Navbar + Footer** - Clear navigation and structured section layout
+- ✅ **Dynamic Multi-Step Flow** - Div-by-div onboarding from signup to dashboard
+- ✅ **Account Creation Step** - Name, email, and phone validation
+- ✅ **Aadhaar Verification Step** - 12-digit check + consent + verification state
+- ✅ **Role Selection Step** - Branching flow for Owner or Renter
+- ✅ **Owner Journey** - Flat details form with image upload support
+- ✅ **Renter Journey** - Vibe match questionnaire with live profile score
+- ✅ **Dashboard Preview** - Role-aware summary after completion
 - ✅ **Day/Night Mode** - Full theme support with smooth transitions
-- ✅ **Responsive Design** - Works perfectly on mobile, tablet, desktop
-- ✅ **Smooth Scrolling** - Enhanced UX with scroll animations
-- ✅ **Beautiful Gradients** - Modern, vibrant color scheme
+- ✅ **Responsive Design** - Works on mobile, tablet, and desktop
 
 #### Backend (FastAPI + Python)
 - ✅ **Waitlist API** - POST endpoint to collect emails
@@ -131,38 +131,32 @@ RentSaathi/
 - Tablet: 768px - 1199px
 - Mobile: < 768px
 
-## 📊 Landing Page Sections
+## 📊 Milestone 1 Dynamic Sections
 
 1. **Hero Section**
-   - Headline: "Find Your Perfect Flatmate Match"
-   - CTA Button: "Join the Waitlist"
-   - Illustration: Sample match cards
+   - Headline focused on dynamic onboarding
+   - CTA to start role-based flow
 
-2. **Problem Section**
-   - 6 key problems flatmates face
-   - Emoji icons for quick recognition
-   - Hover animations
+2. **Process Section**
+   - 5-step visual process cards
+   - Highlights account → Aadhaar → role → details → dashboard
 
-3. **Solution Section**
-   - 4-step process explanation
-   - 4 feature highlights with icons
+3. **Dynamic Onboarding Section**
+   - Multi-step interactive form
+   - Validation and progress tracking
+   - Conditional UI based on selected role
 
-4. **Features Section**
-   - 6 detailed feature cards
-   - Icon, title, description format
+4. **Owner Path**
+   - Flat details (city, locality, rent, room type, move-in date)
+   - Flat image uploads
 
-5. **Stats Section**
-   - 4 impressive metrics
-   - Builds credibility
+5. **Renter Path**
+   - Vibe questionnaire
+   - Live vibe match readiness score
 
-6. **Waitlist Section**
-   - Email input with validation
-   - Success/error messages
-   - Call to action
-
-7. **Footer**
-   - Navigation links
-   - Copyright info
+6. **Dashboard Preview + Footer**
+   - Role-specific onboarding completion summary
+   - Footer blocks describing flow and milestone status
 
 ## 🛠 Tech Stack
 

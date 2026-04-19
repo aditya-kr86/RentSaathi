@@ -13,6 +13,32 @@ The React Compiler is enabled on this template. See [this documentation](https:/
 
 Note: This will impact Vite dev & build performances.
 
+## Deploy To GitHub Pages
+
+This project is configured so that running:
+
+```bash
+npm run deploy
+```
+
+will build and publish the latest UI to the `gh-pages` branch.
+
+### One-time GitHub setup
+
+1. Push your repository to GitHub.
+2. Open repository settings.
+3. Go to `Pages`.
+4. Set source to `Deploy from a branch`.
+5. Choose branch `gh-pages` and folder `/ (root)`.
+
+### Notes
+
+- `npm run deploy` automatically runs `predeploy`, which builds for Pages using:
+  - `vite build --base=/`
+- Custom domain is configured via `public/CNAME`:
+  - `rentsaathi.ankus.dev`
+- In GitHub Pages settings, set custom domain to `rentsaathi.ankus.dev` and ensure your DNS points to GitHub Pages.
+
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:

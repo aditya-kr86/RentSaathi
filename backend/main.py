@@ -43,11 +43,7 @@ async def health_check():
 
 
 # Waitlist endpoints
-@app.post("/api/waitlist", response_model=WaitlistEmailResponse, tags=["Waitlist"])
-async def join_waitlist(
-    request: WaitlistEmailCreate,
-    db: Session = Depends(get_db)
-):
+async def _create_waitlist_entry(request: WaitlistEmailCreate, db: Session) -> WaitlistEmail:
     """
     Join the waitlist with email.
 
@@ -58,37 +54,50 @@ async def join_waitlist(
         HTTPException: If email already exists or invalid
     """
     try:
-        # Check if email already exists
-        existing = db.query(WaitlistEmail).filter(
-            WaitlistEmail.email == request.email
-        ).first()
-
+        existing = db.query(WaitlistEmail).filter(WaitlistEmail.email == request.email).first()
         if existing:
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
                 detail="Email already registered on waitlist"
             )
 
-        # Create new waitlist entry
         db_email = WaitlistEmail(email=request.email)
         db.add(db_email)
         db.commit()
         db.refresh(db_email)
-
         return db_email
 
+    except HTTPException:
+        db.rollback()
+        raise
     except IntegrityError:
         db.rollback()
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Email already registered on waitlist"
         )
-    except Exception as e:
+    except Exception:
         db.rollback()
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=str(e)
+            detail="Unable to join waitlist right now"
         )
+
+
+@app.post("/api/waitlist", response_model=WaitlistEmailResponse, tags=["Waitlist"])
+async def join_waitlist(
+    request: WaitlistEmailCreate,
+    db: Session = Depends(get_db)
+):
+    return await _create_waitlist_entry(request, db)
+
+
+@app.post("/waitlist", response_model=WaitlistEmailResponse, tags=["Waitlist"])
+async def join_waitlist_alias(
+    request: WaitlistEmailCreate,
+    db: Session = Depends(get_db)
+):
+    return await _create_waitlist_entry(request, db)
 
 
 @app.get("/api/waitlist/count", tags=["Waitlist"])
