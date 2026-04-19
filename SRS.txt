@@ -1,0 +1,459 @@
+# 📄 Software Requirements Specification (SRS)
+
+## Project: RentSaathi – Smart Flatmate Matching Platform
+
+---
+
+## 1. Introduction
+
+### 1.1 Purpose
+
+This document defines the functional and non-functional requirements of RentSaathi. It serves as a guide for developers and designers to build a working prototype.
+
+### 1.2 Scope
+
+RentSaathi is a web-based platform that connects users looking for compatible flatmates using smart preference-based matching.
+
+The system will:
+
+* Enable user registration and profile creation
+* Collect lifestyle and preference data
+* Provide intelligent flatmate matching
+* Allow users to post and browse listings
+* Enable contact unlocking (monetization)
+
+### 1.3 Definitions
+
+* User: Person using the platform
+* Listing: Flatmate availability or requirement
+* Matching Score: Compatibility percentage between users
+
+---
+
+## 2. Overall Description
+
+### 2.1 Product Perspective
+
+* Web application (expandable to mobile later)
+* Uses modern stack (React, Node.js, MongoDB)
+
+### 2.2 User Classes
+
+* Guest User (limited browsing)
+* Registered User (profile + matching)
+* Premium User (contact access + visibility boost)
+
+### 2.3 Operating Environment
+
+* Browser: Chrome, Edge, Firefox
+* OS: Windows, Linux, macOS
+
+---
+
+## 3. System Features & Requirements
+
+### 3.1 User Registration & Login
+
+* FR1: Register via email/phone
+* FR2: Secure login
+* FR3: Input validation
+* FR4: Password encryption
+
+---
+
+### 3.2 User Profile & Questionnaire System
+
+**Description:**
+System collects structured data in two stages to maximize conversion and improve matching accuracy.
+
+#### Strategy
+
+* Keep onboarding short (Step 1)
+* Move detailed questions to Profile Completion (Step 2)
+* Mark sensitive fields as optional
+* Use answers for matching algorithm (not just display)
+
+#### Step 1: Basic Info (Mandatory – Fast Signup)
+
+* Full Name
+* Age
+* Gender
+* Current City / Preferred Location
+* Budget Range
+
+#### Step 2: Lifestyle Preferences (Core Matching)
+
+**Living Preferences**
+
+* Smoking: Yes / No / Occasionally
+* Alcohol: Yes / No / Occasionally
+* Food Preference: Veg / Non-Veg / Eggetarian
+* Cooking: Yes / No
+* Cleanliness Level: Low / Medium / High
+* Sleep Schedule: Early / Late
+
+**Work & Routine**
+
+* Employment Status: Student / Working / Other
+* Work Type: WFH / Office / Hybrid
+* Working Hours: Day / Night / Flexible
+
+**Compatibility Preferences**
+
+* Preferred Gender of Flatmate
+* Preferred Occupation (Student / Working)
+* Guests Allowed: Yes / No
+* Noise Tolerance: Low / Medium / High
+
+**Sensitive / Optional Fields**
+
+* Dietary Restrictions
+* Personal Habits
+* Religion (Optional or excluded to avoid ethical/legal risks)
+
+---
+
+### 3.3 Matching Algorithm System
+
+**Description:**
+System generates a compatibility score based on user preferences.
+
+**Functional Requirements:**
+
+* FR21: System shall collect lifestyle preferences
+* FR22: System shall allow optional sensitive inputs
+* FR23: System shall generate compatibility score
+* FR24: System shall display match percentage
+* FR25: System shall allow filtering based on preferences
+
+**Example Scoring Logic:**
+
+* Budget mismatch → -30
+* Smoking mismatch → -20
+* Lifestyle similarity → +40
+
+**Output Example:**
+
+* “85% Match with this user”
+
+---
+
+### 3.4 Listing System
+
+* FR10: Create listing
+* FR11: View listings
+* FR12: Edit/delete listings
+
+---
+
+### 3.5 Search & Filter
+
+* FR13: Filter by location
+* FR14: Filter by budget
+* FR15: Filter by lifestyle preferences
+
+---
+
+### 3.6 Contact Unlock System
+
+* FR16: Request contact
+* FR17: Payment integration (mock in prototype)
+* FR18: Show contact after unlock
+
+---
+
+### 3.7 Communication (Future Scope)
+
+* FR19: In-app chat (future)
+
+---
+
+## 4. Non-Functional Requirements
+
+* Performance: <3 sec load time
+* Security: Encryption + secure APIs
+* Usability: Simple onboarding
+* Reliability: 95% uptime
+* Scalability: Multi-city support
+
+---
+
+## 5. System Architecture
+
+* Frontend: React
+* Backend: Node.js / Express
+* Database: MongoDB
+* Architecture: Client-Server
+
+---
+
+## 6. Development Milestones (Agile Roadmap)
+
+**Tech Stack Constraint (applies to all milestones):**
+
+* Frontend: React (TypeScript / TSX)
+* Backend: FastAPI (Python)
+* ORM: SQLAlchemy (DB-agnostic: start with SQLite → switchable to PostgreSQL; optional Mongo via adapter later)
+* Auth: JWT-based sessions
+* Deployment (prototype): Vercel/Netlify (FE) + Render/Fly.io (BE)
+
+**Sprint cadence:** 1–2 weeks per milestone (keep scope tight, demo at end of each sprint)
+
+---
+
+### 🚀 Milestone 1: Landing Page (Coming Soon)
+
+**Goal:** Validate idea + capture interest
+
+**Frontend (React TSX):**
+
+* Responsive landing page (Hero, Problem, Solution, How it works)
+* CTA: “Join Waitlist”
+* Email input with client-side validation
+* Minimal branding + screenshots/illustrations
+
+**Backend (FastAPI):**
+
+* Endpoint: `POST /waitlist` (store email, timestamp)
+* Basic rate limiting
+
+**Database (SQLAlchemy):**
+
+* Table: `waitlist_emails(id, email, created_at)`
+
+**Deliverables:**
+
+* Live URL
+* 100+ emails collected (target)
+
+---
+
+### 🔐 Milestone 2: Authentication System
+
+**Goal:** Secure user access
+
+**Frontend:**
+
+* Signup/Login pages (TSX forms)
+* Form validation (email, password strength)
+* Error states + loading states
+
+**Backend (FastAPI):**
+
+* `POST /auth/register`
+* `POST /auth/login`
+* JWT issuance + refresh token (optional)
+* Password hashing (bcrypt)
+
+**Database:**
+
+* Table: `users(id, email, password_hash, created_at, is_premium)`
+
+**Security:**
+
+* Input validation (Pydantic)
+* Rate limiting (login)
+
+**Deliverables:**
+
+* Working auth flow with protected routes
+
+---
+
+### 👤 Milestone 3: Profile + Questionnaire
+
+**Goal:** Capture high-signal user data
+
+**Frontend:**
+
+* Multi-step form (Step 1 + Step 2)
+* Progress indicator
+* Save & resume capability
+
+**Backend:**
+
+* `GET /profile/me`
+* `POST /profile` (create/update)
+
+**Database (normalized or JSON field):**
+
+* Table: `profiles(user_id, age, gender, location, budget_min, budget_max, ... )`
+* Table/JSON: `preferences(smoking, alcohol, food, cooking, cleanliness, sleep, employment, work_type, hours, preferred_gender, preferred_occupation, guests_allowed, noise_tolerance, dietary_restrictions, personal_habits)`
+
+**Notes:**
+
+* Sensitive fields optional
+* Store enums for consistency
+
+**Deliverables:**
+
+* Completed profile stored + retrievable
+
+---
+
+### 🧠 Milestone 4: Matching Engine (Core Feature)
+
+**Goal:** Demonstrate intelligence
+
+**Backend (core logic):**
+
+* Service: `match_score(user_a, user_b) -> int`
+* Weighted scoring (config-driven):
+
+  * Budget mismatch → -30
+  * Smoking mismatch → -20
+  * Lifestyle similarity → +40
+* Normalize to 0–100
+
+**Endpoints:**
+
+* `GET /matches` (top N matches for current user)
+
+**Frontend:**
+
+* Match cards with % score
+* Sort by score
+
+**Data:**
+
+* Precompute vs on-demand (start on-demand)
+
+**Deliverables:**
+
+* “85% Match” visible with list of users
+
+---
+
+### 🏠 Milestone 5: Listing + Search System
+
+**Goal:** Combine marketplace + matching
+
+**Frontend:**
+
+* Create listing form (rent, location, photos optional)
+* Listings feed + filters UI
+
+**Backend:**
+
+* `POST /listings`
+* `GET /listings` (filters: location, budget, preferences)
+* `DELETE /listings/{id}`
+
+**Database:**
+
+* Table: `listings(id, owner_id, title, location, rent, description, created_at)`
+
+**Integration:**
+
+* Attach match score to listing owner vs current user
+
+**Deliverables:**
+
+* Filtered listings with match % overlay
+
+---
+
+### 💰 Milestone 6: Monetization + Polish (Freemium)
+
+**Goal:** Introduce revenue + improve UX
+
+**Freemium Model:**
+
+**Free Plan:**
+
+* Create profile + listings
+* View limited matches (e.g., top 5/day)
+* See match % (blurred details)
+* Limited contact views (e.g., 2 unlocks/month)
+
+**Premium Plan:**
+
+* Unlimited match browsing
+* Full profile visibility
+* Unlimited contact unlocks
+* Priority listing visibility
+* Advanced filters (lifestyle, routine)
+
+**Backend:**
+
+* `POST /payments/mock` (simulate success)
+* `POST /unlock/{user_id}`
+* Feature flags based on `is_premium`
+
+**Frontend:**
+
+* Paywall modal
+* Upgrade CTA
+
+**Polish:**
+
+* UI refinements (loading skeletons, toasts)
+* Basic analytics (events)
+
+**Deployment:**
+
+* FE + BE deployed
+* Env configs (dev/prod)
+
+**Deliverables:**
+
+* End-to-end demo with upgrade flow
+
+---
+
+### 🔐 Milestone 2: Authentication System
+
+* Signup/Login
+* Basic validation
+* Session handling
+
+---
+
+### 👤 Milestone 3: Profile + Questionnaire
+
+* Step 1 (Basic info)
+* Step 2 (Lifestyle questions)
+* Store in database
+
+---
+
+### 🧠 Milestone 4: Matching Engine (Core Feature)
+
+* Implement scoring logic
+* Show match percentage
+* Basic recommendation list
+
+---
+
+### 🏠 Milestone 5: Listing + Search System
+
+* Create/view listings
+* Apply filters
+* Connect matching with listings
+
+---
+
+### 💰 Milestone 6: Monetization + Polish
+
+* Mock payment system
+* Unlock contact feature
+* UI improvements
+* Deploy prototype
+
+---
+
+## 7. Conclusion
+
+RentSaathi focuses on solving flatmate compatibility using structured data and smart matching. The prototype prioritizes user experience, speed, and core functionality over complex integrations.
+
+---
+
+## 💡 Final Note
+
+Do not overcomplicate the prototype:
+
+* Keep onboarding fast
+* Focus on matching quality
+* Simulate complex systems (payment, verification)
+
+Build something that *works and feels real* — not something perfect.
