@@ -401,47 +401,6 @@ System generates a compatibility score based on user preferences.
 
 ---
 
-### 🔐 Milestone 2: Authentication System
-
-* Signup/Login
-* Basic validation
-* Session handling
-
----
-
-### 👤 Milestone 3: Profile + Questionnaire
-
-* Step 1 (Basic info)
-* Step 2 (Lifestyle questions)
-* Store in database
-
----
-
-### 🧠 Milestone 4: Matching Engine (Core Feature)
-
-* Implement scoring logic
-* Show match percentage
-* Basic recommendation list
-
----
-
-### 🏠 Milestone 5: Listing + Search System
-
-* Create/view listings
-* Apply filters
-* Connect matching with listings
-
----
-
-### 💰 Milestone 6: Monetization + Polish
-
-* Mock payment system
-* Unlock contact feature
-* UI improvements
-* Deploy prototype
-
----
-
 ## 7. Conclusion
 
 RentPartner focuses on solving flatmate compatibility using structured data and smart matching. The prototype prioritizes user experience, speed, and core functionality over complex integrations.
